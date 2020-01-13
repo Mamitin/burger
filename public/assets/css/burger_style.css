@@ -1,0 +1,6 @@
+.jumbotron {
+    background-image: (../img/burger.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-top: 3%;
+}
