@@ -1,18 +1,20 @@
-$(function () {
-    $(".create-form").on("submit", function (event) {
+$(document).ready(function () {
+    $("#addburger").on("submit", function (event) {
         event.preventDefault();
-
+        
         var newBurger = {
-            burger_name: $("#new").val().trim(),
+            burger_name: $("#newburger").val(),
             devoured: 0
         };
+        console.log($("#newburger").val());
 
         $.ajax("/api/burger", {
             type: "POST",
-            data: newBurger
+            data: JSON.stringify(newBurger),
+            contentType: "application/json"
         }).then(function () {
             console.log("Added new burger");
-            location.reload();
+            //location.reload();
         });
     });
 
@@ -26,7 +28,8 @@ $(function () {
 
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: devouredBurger
+            data: JSON.stringify(devouredBurger),
+            contentType: "application/json"
         }).then(function () {
             console.log("Burger has been eaten!");
             location.reload();
