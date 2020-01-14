@@ -1,21 +1,20 @@
 $(document).ready(function () {
-    $("#addburger").on("submit", function (event) {
+    $("#addburger").on("click", function (event) {
         event.preventDefault();
         
         var newBurger = {
             burger_name: $("#newburger").val(),
             devoured: 0
         };
-        console.log($("#newburger").val());
+        console.log(newBurger);
 
-        $.ajax("/api/burger", {
-            type: "POST",
-            data: JSON.stringify(newBurger),
-            contentType: "application/json"
-        }).then(function () {
-            console.log("Added new burger");
-            //location.reload();
-        });
+        // 
+        $.post("/api/burgers", newBurger, function(data){
+            console.log("New burger added");
+            location.reload();
+            
+        })
+
     });
 
     $(".eatburger").on("click", function (event) {
@@ -44,7 +43,8 @@ $(document).ready(function () {
         $.ajax({
             type: "DELETE",
             url: "/api/burgers/" + id
-        }).then(function () {
+        }).then(function() {
+            console.log("Jerome went to Costco!");
             location.reload();
         });
     });

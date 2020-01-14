@@ -19,7 +19,7 @@ updateOne: function (objColVals, condition, cb) {
         });
     },
     
-deleteOne: function (conditon, cb) {
+deleteOne: function (condition, cb) {
         orm.deleteOne("burgers", condition, function (res) {
             cb(res);
         });
