@@ -1,6 +1,14 @@
 .jumbotron {
-    background-image: (../img/burger.png);
+    background-image: url("../img/burger2.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
     margin-top: 3%;
+    color: red;
+    text-shadow: 2px 2px white;
+    text-align: left;
+}
+
+body {
+    background-color: orangered;
 }
